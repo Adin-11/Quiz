@@ -3,13 +3,16 @@
 
 <head>
     <meta charset='utf-8'>
-    <title>OOP MCQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP MCQ Quiz</title>
     <style>
         body {
-            font-family: Arial;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             background: #121212;
             color: #e0e0e0;
-            margin: 0
+            margin: 0;
+            line-height: 1.6;
+            -webkit-tap-highlight-color: transparent;
         }
 
         nav {
@@ -17,507 +20,487 @@
             top: 0;
             background: #1e1e1e;
             padding: 10px;
-            border-bottom: 1px solid #333
+            border-bottom: 1px solid #333;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 8px;
+            z-index: 1000;
+            scrollbar-width: none; /* Firefox */
         }
 
+        nav::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
         nav button {
-            margin: 4px;
-            padding: 8px 14px;
+            padding: 10px 18px;
             background: #2b2b2b;
             color: #fff;
             border: 1px solid #555;
-            border-radius: 6px;
-            cursor: pointer
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            flex-shrink: 0;
         }
 
         nav button:hover {
-            background: #3a3a3a
+            background: #3a3a3a;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px;
         }
 
         .tab {
             display: none;
-            padding: 10px
         }
 
         .tab.active {
-            display: block
+            display: block;
         }
 
         .q {
             background: #1c1c1c;
             border: 1px solid #333;
-            border-radius: 8px;
-            padding: 12px;
-            margin: 12px 0
+            border-radius: 12px;
+            padding: 16px;
+            margin: 16px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .q-text {
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: block;
+            font-size: 1.05rem;
         }
 
         label {
-            display: block;
-            padding: 8px;
-            margin: 4px 0;
-            border-radius: 5px;
-            cursor: pointer
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: #262626;
+            border: 1px solid #444;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: 0.95rem;
         }
 
         label:hover {
-            background: #2a2a2a
+            background: #333;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
         }
 
         .correct {
             background: #1f6f3d !important;
-            color: #fff
+            border-color: #2ecc71 !important;
+            color: #fff;
         }
 
         .wrong {
             background: #8b2d2d !important;
-            color: #fff
+            border-color: #e74c3c !important;
+            color: #fff;
+        }
+
+        .res {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .q { padding: 12px; }
+            label { padding: 10px; font-size: 0.9rem; }
+            .q-text { font-size: 1rem; }
         }
     </style>
 </head>
 
 <body>
     <nav>
-<button onclick="show('I')">Module I</button>
-<button onclick="show('II')">Module II</button>
-<button onclick="show('III')">Module III</button>
-<button onclick="show('IV')">Module IV</button>
-<button onclick="show('V')">Module V</button>
-</nav>
-    <div id='I' class='tab'>
-        <div class='q'>
-            <div>1. What are the basic run-time entities in an object-oriented system.<br>a) Object<br>b)
-                Encapsulation<br>c) Dynamic Binding<br>d) Polymorphism</div>
-            <label><input type=radio name='I0' onclick="check(this,'a')"> a) Object</label>
-            <label><input type=radio name='I0' onclick="check(this,'a')"> b) Encapsulation</label>
-            <label><input type=radio name='I0' onclick="check(this,'a')"> c) Dynamic Binding</label>
-            <label><input type=radio name='I0' onclick="check(this,'a')"> d) Polymorphism</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>2. What is the wrapping up of data and functions into a single unit?<br>a) Dynamic Binding<br>b)
-                Polymorphism<br>c) Inheritance<br>d) Encapsulation</div>
-            <label><input type=radio name='I1' onclick="check(this,'d')"> a) Dynamic Binding</label>
-            <label><input type=radio name='I1' onclick="check(this,'d')"> b) Polymorphism</label>
-            <label><input type=radio name='I1' onclick="check(this,'d')"> c) Inheritance</label>
-            <label><input type=radio name='I1' onclick="check(this,'d')"> d) Encapsulation</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>3. What is the operator which is used to define the member functions outside the class?<br>a) $<br>b) :
-                :<br>c) &<br>d) *Z</div>
-            <label><input type=radio name='I2' onclick="check(this,'b')"> a) $</label>
-            <label><input type=radio name='I2' onclick="check(this,'b')"> b) : :</label>
-            <label><input type=radio name='I2' onclick="check(this,'b')"> c) &</label>
-            <label><input type=radio name='I2' onclick="check(this,'b')"> d) *Z</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>4. How would you solve the problem of accessing the member function getdata (int a, float b) of a
-                class?<br>a) getdata(100, 25.5)<br>b) x.getdata(100, 25.5)<br>c) x=getdata(100,25.5)<br>d) getdata()
+        <button onclick="show('I')">Module I</button>
+        <button onclick="show('II')">Module II</button>
+        <button onclick="show('III')">Module III</button>
+        <button onclick="show('IV')">Module IV</button>
+        <button onclick="show('V')">Module V</button>
+    </nav>
+
+    <div class="container">
+        <!-- MODULE I -->
+        <div id='I' class='tab active'>
+            <div class='q'>
+                <span class='q-text'>1. What are the basic run-time entities in an object-oriented system.<br>a) Object<br>b) Encapsulation<br>c) Dynamic Binding<br>d) Polymorphism</span>
+                <label><input type=radio name='I0' onclick="check(this,'a')"> a) Object</label>
+                <label><input type=radio name='I0' onclick="check(this,'a')"> b) Encapsulation</label>
+                <label><input type=radio name='I0' onclick="check(this,'a')"> c) Dynamic Binding</label>
+                <label><input type=radio name='I0' onclick="check(this,'a')"> d) Polymorphism</label>
+                <div class='res'></div>
             </div>
-            <label><input type=radio name='I3' onclick="check(this,'b')"> a) getdata(100, 25.5)</label>
-            <label><input type=radio name='I3' onclick="check(this,'b')"> b) x.getdata(100, 25.5)</label>
-            <label><input type=radio name='I3' onclick="check(this,'b')"> c) x=getdata(100,25.5)</label>
-            <label><input type=radio name='I3' onclick="check(this,'b')"> d) getdata()</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>5. How would you solve the problem of using an object and accessing a member function displayInfo() of
-                a class?<br>a) displayInfo();<br>b) object.displayInfo();<br>c) object = displayInfo();<br>d)
-                displayInfo(object);</div>
-            <label><input type=radio name='I4' onclick="check(this,'b')"> a) displayInfo();</label>
-            <label><input type=radio name='I4' onclick="check(this,'b')"> b) object.displayInfo();</label>
-            <label><input type=radio name='I4' onclick="check(this,'b')"> c) object = displayInfo();</label>
-            <label><input type=radio name='I4' onclick="check(this,'b')"> d) displayInfo(object);</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>6. What is the function that has full access rights to the private members of a class although it is
-                not a member of the class?<br>a) Constant Member Function<br>b) Private Member Function<br>c) Protected
-                Member Function<br>d) Friend Function</div>
-            <label><input type=radio name='I5' onclick="check(this,'d')"> a) Constant Member Function</label>
-            <label><input type=radio name='I5' onclick="check(this,'d')"> b) Private Member Function</label>
-            <label><input type=radio name='I5' onclick="check(this,'d')"> c) Protected Member Function</label>
-            <label><input type=radio name='I5' onclick="check(this,'d')"> d) Friend Function</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>7. Identify the term used for a function defined inside a class.<br>a) Member Variable<br>b) Member
-                Function<br>c) Class Function<br>d) Static Function</div>
-            <label><input type=radio name='I6' onclick="check(this,'b')"> a) Member Variable</label>
-            <label><input type=radio name='I6' onclick="check(this,'b')"> b) Member Function</label>
-            <label><input type=radio name='I6' onclick="check(this,'b')"> c) Class Function</label>
-            <label><input type=radio name='I6' onclick="check(this,'b')"> d) Static Function</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>8. Identify the concept that facilitates objects of one class to acquire the properties of another
-                class.<br>a) Polymorphism<br>b) Inheritance<br>c) Message Passing<br>d) Encapsulation</div>
-            <label><input type=radio name='I7' onclick="check(this,'b')"> a) Polymorphism</label>
-            <label><input type=radio name='I7' onclick="check(this,'b')"> b) Inheritance</label>
-            <label><input type=radio name='I7' onclick="check(this,'b')"> c) Message Passing</label>
-            <label><input type=radio name='I7' onclick="check(this,'b')"> d) Encapsulation</label>
-            <div class='res'></div>
-        </div>
-    </div>
-    <div id='II' class='tab active'>
-        <div class='q'>
-            <div>1. What is a constructor?<br>a) A function that initializes objects<br>b) A function that destroys
-                objects<br>c) A type of variable<br>d) A class method</div>
-            <label><input type=radio name='II0' onclick="check(this,'a')"> a) A function that initializes
-                objects</label>
-            <label><input type=radio name='II0' onclick="check(this,'a')"> b) A function that destroys objects</label>
-            <label><input type=radio name='II0' onclick="check(this,'a')"> c) A type of variable</label>
-            <label><input type=radio name='II0' onclick="check(this,'a')"> d) A class method</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>2. What is a destructor?<br>a) A function that initializes objects<br>b) A function that frees memory
-                and cleans up<br>c) A type of constructor<br>d) A type of operator</div>
-            <label><input type=radio name='II1' onclick="check(this,'b')"> a) A function that initializes
-                objects</label>
-            <label><input type=radio name='II1' onclick="check(this,'b')"> b) A function that frees memory and cleans
-                up</label>
-            <label><input type=radio name='II1' onclick="check(this,'b')"> c) A type of constructor</label>
-            <label><input type=radio name='II1' onclick="check(this,'b')"> d) A type of operator</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>3. Which of the following is true for constructors with default arguments?<br>a) They can only take one
-                argument<br>b) They are called automatically with no arguments if no argument is passed<br>c) They
-                cannot be overloaded<br>d) They destroy objects</div>
-            <label><input type=radio name='II2' onclick="check(this,'b')"> a) They can only take one argument</label>
-            <label><input type=radio name='II2' onclick="check(this,'b')"> b) They are called automatically with no
-                arguments if no argument is passed</label>
-            <label><input type=radio name='II2' onclick="check(this,'b')"> c) They cannot be overloaded</label>
-            <label><input type=radio name='II2' onclick="check(this,'b')"> d) They destroy objects</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>4. Which operator can be overloaded in C++?<br>a) Assignment operator<br>b) Arithmetic operators<br>c)
-                Comparison operators<br>d) All of the above</div>
-            <label><input type=radio name='II3' onclick="check(this,'d')"> a) Assignment operator</label>
-            <label><input type=radio name='II3' onclick="check(this,'d')"> b) Arithmetic operators</label>
-            <label><input type=radio name='II3' onclick="check(this,'d')"> c) Comparison operators</label>
-            <label><input type=radio name='II3' onclick="check(this,'d')"> d) All of the above</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>5. Which of the following is NOT a rule for overloading operators?<br>a) You cannot change the number
-                of operands<br>b) You cannot overload certain operators (like ::, sizeof)<br>c) The operator must always
-                return a value<br>d) Overloading operators is always done using member functions</div>
-            <label><input type=radio name='II4' onclick="check(this,'d')"> a) You cannot change the number of
-                operands</label>
-            <label><input type=radio name='II4' onclick="check(this,'d')"> b) You cannot overload certain operators
-                (like ::, sizeof)</label>
-            <label><input type=radio name='II4' onclick="check(this,'d')"> c) The operator must always return a
-                value</label>
-            <label><input type=radio name='II4' onclick="check(this,'d')"> d) Overloading operators is always done using
-                member functions</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>6. What is a copy constructor?<br>a) A constructor that deletes objects<br>b) A constructor that copies
-                the values of an existing object<br>c) A constructor that allocates memory only<br>d) A constructor that
-                overloads operators</div>
-            <label><input type=radio name='II5' onclick="check(this,'b')"> a) A constructor that deletes objects</label>
-            <label><input type=radio name='II5' onclick="check(this,'b')"> b) A constructor that copies the values of an
-                existing object</label>
-            <label><input type=radio name='II5' onclick="check(this,'b')"> c) A constructor that allocates memory
-                only</label>
-            <label><input type=radio name='II5' onclick="check(this,'b')"> d) A constructor that overloads
-                operators</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>7. What is the purpose of operator overloading?<br>a) To remove operators from programs<br>b) To allow
-                operators to work with user-defined data types<br>c) To increase program size<br>d) To avoid using
-                functions</div>
-            <label><input type=radio name='II6' onclick="check(this,'b')"> a) To remove operators from programs</label>
-            <label><input type=radio name='II6' onclick="check(this,'b')"> b) To allow operators to work with
-                user-defined data types</label>
-            <label><input type=radio name='II6' onclick="check(this,'b')"> c) To increase program size</label>
-            <label><input type=radio name='II6' onclick="check(this,'b')"> d) To avoid using functions</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>8. What is the main purpose of a destructor?<br>a) To copy objects<br>b) To allocate memory<br>c) To
-                free memory and clean resources<br>d) To overload operators</div>
-            <label><input type=radio name='II7' onclick="check(this,'c')"> a) To copy objects</label>
-            <label><input type=radio name='II7' onclick="check(this,'c')"> b) To allocate memory</label>
-            <label><input type=radio name='II7' onclick="check(this,'c')"> c) To free memory and clean resources</label>
-            <label><input type=radio name='II7' onclick="check(this,'c')"> d) To overload operators</label>
-            <div class='res'></div>
-        </div>
-    </div>
-    <div id='III' class='tab'>
-        <div class='q'>
-            <div>1. What is meant by function overloading in C++?<br>a) Using different function names<br>b) Using the
-                same function name with different parameters<br>c) Using only one parameter<br>d) Using global variables
+            <div class='q'>
+                <span class='q-text'>2. What is the wrapping up of data and functions into a single unit?<br>a) Dynamic Binding<br>b) Polymorphism<br>c) Inheritance<br>d) Encapsulation</span>
+                <label><input type=radio name='I1' onclick="check(this,'d')"> a) Dynamic Binding</label>
+                <label><input type=radio name='I1' onclick="check(this,'d')"> b) Polymorphism</label>
+                <label><input type=radio name='I1' onclick="check(this,'d')"> c) Inheritance</label>
+                <label><input type=radio name='I1' onclick="check(this,'d')"> d) Encapsulation</label>
+                <div class='res'></div>
             </div>
-            <label><input type=radio name='III0' onclick="check(this,'b')"> a) Using different function names</label>
-            <label><input type=radio name='III0' onclick="check(this,'b')"> b) Using the same function name with
-                different parameters</label>
-            <label><input type=radio name='III0' onclick="check(this,'b')"> c) Using only one parameter</label>
-            <label><input type=radio name='III0' onclick="check(this,'b')"> d) Using global variables</label>
-            <div class='res'></div>
+            <div class='q'>
+                <span class='q-text'>3. What is the operator which is used to define the member functions outside the class?<br>a) $<br>b) ::<br>c) &<br>d) *Z</span>
+                <label><input type=radio name='I2' onclick="check(this,'b')"> a) $</label>
+                <label><input type=radio name='I2' onclick="check(this,'b')"> b) ::</label>
+                <label><input type=radio name='I2' onclick="check(this,'b')"> c) &</label>
+                <label><input type=radio name='I2' onclick="check(this,'b')"> d) *Z</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>4. How would you solve the problem of accessing the member function getdata (int a, float b) of a class?<br>a) getdata(100, 25.5)<br>b) x.getdata(100, 25.5)<br>c) x=getdata(100,25.5)<br>d) getdata()</span>
+                <label><input type=radio name='I3' onclick="check(this,'b')"> a) getdata(100, 25.5)</label>
+                <label><input type=radio name='I3' onclick="check(this,'b')"> b) x.getdata(100, 25.5)</label>
+                <label><input type=radio name='I3' onclick="check(this,'b')"> c) x=getdata(100,25.5)</label>
+                <label><input type=radio name='I3' onclick="check(this,'b')"> d) getdata()</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>5. How would you solve the problem of using an object and accessing a member function displayInfo() of a class?<br>a) displayInfo();<br>b) object.displayInfo();<br>c) object = displayInfo();<br>d) displayInfo(object);</span>
+                <label><input type=radio name='I4' onclick="check(this,'b')"> a) displayInfo();</label>
+                <label><input type=radio name='I4' onclick="check(this,'b')"> b) object.displayInfo();</label>
+                <label><input type=radio name='I4' onclick="check(this,'b')"> c) object = displayInfo();</label>
+                <label><input type=radio name='I4' onclick="check(this,'b')"> d) displayInfo(object);</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>6. What is the function that has full access rights to the private members of a class although it is not a member of the class?<br>a) Constant Member Function<br>b) Private Member Function<br>c) Protected Member Function<br>d) Friend Function</span>
+                <label><input type=radio name='I5' onclick="check(this,'d')"> a) Constant Member Function</label>
+                <label><input type=radio name='I5' onclick="check(this,'d')"> b) Private Member Function</label>
+                <label><input type=radio name='I5' onclick="check(this,'d')"> c) Protected Member Function</label>
+                <label><input type=radio name='I5' onclick="check(this,'d')"> d) Friend Function</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>7. Identify the term used for a function defined inside a class.<br>a) Member Variable<br>b) Member Function<br>c) Class Function<br>d) Static Function</span>
+                <label><input type=radio name='I6' onclick="check(this,'b')"> a) Member Variable</label>
+                <label><input type=radio name='I6' onclick="check(this,'b')"> b) Member Function</label>
+                <label><input type=radio name='I6' onclick="check(this,'b')"> c) Class Function</label>
+                <label><input type=radio name='I6' onclick="check(this,'b')"> d) Static Function</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>8. Identify the concept that facilitates objects of one class to acquire the properties of another class.<br>a) Polymorphism<br>b) Inheritance<br>c) Message Passing<br>d) Encapsulation</span>
+                <label><input type=radio name='I7' onclick="check(this,'b')"> a) Polymorphism</label>
+                <label><input type=radio name='I7' onclick="check(this,'b')"> b) Inheritance</label>
+                <label><input type=radio name='I7' onclick="check(this,'b')"> c) Message Passing</label>
+                <label><input type=radio name='I7' onclick="check(this,'b')"> d) Encapsulation</label>
+                <div class='res'></div>
+            </div>
         </div>
-        <div class='q'>
-            <div>2. What is meant by “single inheritance” in C++?<br>a) A derived class inherits from only one base
-                class<br>b) A derived class inherits from multiple base classes<br>c) A base class inherits from derived
-                class<br>d) Multiple classes inherit from multiple base classes</div>
-            <label><input type=radio name='III1' onclick="check(this,'a')"> a) A derived class inherits from only one
-                base class</label>
-            <label><input type=radio name='III1' onclick="check(this,'a')"> b) A derived class inherits from multiple
-                base classes</label>
-            <label><input type=radio name='III1' onclick="check(this,'a')"> c) A base class inherits from derived
-                class</label>
-            <label><input type=radio name='III1' onclick="check(this,'a')"> d) Multiple classes inherit from multiple
-                base classes</label>
-            <div class='res'></div>
+
+        <!-- MODULE II -->
+        <div id='II' class='tab'>
+            <div class='q'>
+                <span class='q-text'>1. What is a constructor?<br>a) A function that initializes objects<br>b) A function that destroys objects<br>c) A type of variable<br>d) A class method</span>
+                <label><input type=radio name='II0' onclick="check(this,'a')"> a) A function that initializes objects</label>
+                <label><input type=radio name='II0' onclick="check(this,'a')"> b) A function that destroys objects</label>
+                <label><input type=radio name='II0' onclick="check(this,'a')"> c) A type of variable</label>
+                <label><input type=radio name='II0' onclick="check(this,'a')"> d) A class method</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>2. What is a destructor?<br>a) A function that initializes objects<br>b) A function that frees memory and cleans up<br>c) A type of constructor<br>d) A type of operator</span>
+                <label><input type=radio name='II1' onclick="check(this,'b')"> a) A function that initializes objects</label>
+                <label><input type=radio name='II1' onclick="check(this,'b')"> b) A function that frees memory and cleans up</label>
+                <label><input type=radio name='II1' onclick="check(this,'b')"> c) A type of constructor</label>
+                <label><input type=radio name='II1' onclick="check(this,'b')"> d) A type of operator</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>3. Which of the following is true for constructors with default arguments?<br>a) They can only take one argument<br>b) They are called automatically with no arguments if no argument is passed<br>c) They cannot be overloaded<br>d) They destroy objects</span>
+                <label><input type=radio name='II2' onclick="check(this,'b')"> a) They can only take one argument</label>
+                <label><input type=radio name='II2' onclick="check(this,'b')"> b) They are called automatically with no arguments if no argument is passed</label>
+                <label><input type=radio name='II2' onclick="check(this,'b')"> c) They cannot be overloaded</label>
+                <label><input type=radio name='II2' onclick="check(this,'b')"> d) They destroy objects</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>4. Which operator can be overloaded in C++?<br>a) Assignment operator<br>b) Arithmetic operators<br>c) Comparison operators<br>d) All of the above</span>
+                <label><input type=radio name='II3' onclick="check(this,'d')"> a) Assignment operator</label>
+                <label><input type=radio name='II3' onclick="check(this,'d')"> b) Arithmetic operators</label>
+                <label><input type=radio name='II3' onclick="check(this,'d')"> c) Comparison operators</label>
+                <label><input type=radio name='II3' onclick="check(this,'d')"> d) All of the above</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>5. Which of the following is NOT a rule for overloading operators?<br>a) You cannot change the number of operands<br>b) You cannot overload certain operators (like ::, sizeof)<br>c) The operator must always return a value<br>d) Overloading operators is always done using member functions</span>
+                <label><input type=radio name='II4' onclick="check(this,'d')"> a) You cannot change the number of operands</label>
+                <label><input type=radio name='II4' onclick="check(this,'d')"> b) You cannot overload certain operators (like ::, sizeof)</label>
+                <label><input type=radio name='II4' onclick="check(this,'d')"> c) The operator must always return a value</label>
+                <label><input type=radio name='II4' onclick="check(this,'d')"> d) Overloading operators is always done using member functions</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>6. What is a copy constructor?<br>a) A constructor that deletes objects<br>b) A constructor that copies the values of an existing object<br>c) A constructor that allocates memory only<br>d) A constructor that overloads operators</span>
+                <label><input type=radio name='II5' onclick="check(this,'b')"> a) A constructor that deletes objects</label>
+                <label><input type=radio name='II5' onclick="check(this,'b')"> b) A constructor that copies the values of an existing object</label>
+                <label><input type=radio name='II5' onclick="check(this,'b')"> c) A constructor that allocates memory only</label>
+                <label><input type=radio name='II5' onclick="check(this,'b')"> d) A constructor that overloads operators</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>7. What is the purpose of operator overloading?<br>a) To remove operators from programs<br>b) To allow operators to work with user-defined data types<br>c) To increase program size<br>d) To avoid using functions</span>
+                <label><input type=radio name='II6' onclick="check(this,'b')"> a) To remove operators from programs</label>
+                <label><input type=radio name='II6' onclick="check(this,'b')"> b) To allow operators to work with user-defined data types</label>
+                <label><input type=radio name='II6' onclick="check(this,'b')"> c) To increase program size</label>
+                <label><input type=radio name='II6' onclick="check(this,'b')"> d) To avoid using functions</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>8. What is the main purpose of a destructor?<br>a) To copy objects<br>b) To allocate memory<br>c) To free memory and clean resources<br>d) To overload operators</span>
+                <label><input type=radio name='II7' onclick="check(this,'c')"> a) To copy objects</label>
+                <label><input type=radio name='II7' onclick="check(this,'c')"> b) To allocate memory</label>
+                <label><input type=radio name='II7' onclick="check(this,'c')"> c) To free memory and clean resources</label>
+                <label><input type=radio name='II7' onclick="check(this,'c')"> d) To overload operators</label>
+                <div class='res'></div>
+            </div>
         </div>
-        <div class='q'>
-            <div>3. What is meant by “multilevel inheritance” in C++?<br>a) One class inherits from multiple
-                classes<br>b) A class inherits from another class, which itself inherits from another class<br>c)
-                Multiple classes inherit from one class<br>d) No class inherits from another</div>
-            <label><input type=radio name='III2' onclick="check(this,'b')"> a) One class inherits from multiple
-                classes</label>
-            <label><input type=radio name='III2' onclick="check(this,'b')"> b) A class inherits from another class,
-                which itself inherits from another class</label>
-            <label><input type=radio name='III2' onclick="check(this,'b')"> c) Multiple classes inherit from one
-                class</label>
-            <label><input type=radio name='III2' onclick="check(this,'b')"> d) No class inherits from another</label>
-            <div class='res'></div>
+
+        <!-- MODULE III -->
+        <div id='III' class='tab'>
+            <div class='q'>
+                <span class='q-text'>1. What is meant by function overloading in C++?<br>a) Using different function names<br>b) Using the same function name with different parameters<br>c) Using only one parameter<br>d) Using global variables</span>
+                <label><input type=radio name='III0' onclick="check(this,'b')"> a) Using different function names</label>
+                <label><input type=radio name='III0' onclick="check(this,'b')"> b) Using the same function name with different parameters</label>
+                <label><input type=radio name='III0' onclick="check(this,'b')"> c) Using only one parameter</label>
+                <label><input type=radio name='III0' onclick="check(this,'b')"> d) Using global variables</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>2. What is meant by “single inheritance” in C++?<br>a) A derived class inherits from only one base class<br>b) A derived class inherits from multiple base classes<br>c) A base class inherits from derived class<br>d) Multiple classes inherit from multiple base classes</span>
+                <label><input type=radio name='III1' onclick="check(this,'a')"> a) A derived class inherits from only one base class</label>
+                <label><input type=radio name='III1' onclick="check(this,'a')"> b) A derived class inherits from multiple base classes</label>
+                <label><input type=radio name='III1' onclick="check(this,'a')"> c) A base class inherits from derived class</label>
+                <label><input type=radio name='III1' onclick="check(this,'a')"> d) Multiple classes inherit from multiple base classes</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>3. What is meant by “multilevel inheritance” in C++?<br>a) One class inherits from multiple classes<br>b) A class inherits from another class, which itself inherits from another class<br>c) Multiple classes inherit from one class<br>d) No class inherits from another</span>
+                <label><input type=radio name='III2' onclick="check(this,'b')"> a) One class inherits from multiple classes</label>
+                <label><input type=radio name='III2' onclick="check(this,'b')"> b) A class inherits from another class, which itself inherits from another class</label>
+                <label><input type=radio name='III2' onclick="check(this,'b')"> c) Multiple classes inherit from one class</label>
+                <label><input type=radio name='III2' onclick="check(this,'b')"> d) No class inherits from another</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>4. How does inheritance support code reusability in C++?<br>a) By deleting base class members<br>b) By allowing derived classes to reuse properties and functions of base classes<br>c) By preventing class creation<br>d) By restricting function access</span>
+                <label><input type=radio name='III3' onclick="check(this,'b')"> a) By deleting base class members</label>
+                <label><input type=radio name='III3' onclick="check(this,'b')"> b) By allowing derived classes to reuse properties and functions of base classes</label>
+                <label><input type=radio name='III3' onclick="check(this,'b')"> c) By preventing class creation</label>
+                <label><input type=radio name='III3' onclick="check(this,'b')"> d) By restricting function access</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>5. What is the purpose of using the colon(:) symbol in C++ inheritance?<br>a) It terminates the class definition<br>b) It indicates that a derived class inherits from a base class<br>c) It declares a member function<br>d) It defines a variable</span>
+                <label><input type=radio name='III4' onclick="check(this,'b')"> a) It terminates the class definition</label>
+                <label><input type=radio name='III4' onclick="check(this,'b')"> b) It indicates that a derived class inherits from a base class</label>
+                <label><input type=radio name='III4' onclick="check(this,'b')"> c) It declares a member function</label>
+                <label><input type=radio name='III4' onclick="check(this,'b')"> d) It defines a variable</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>6. What is meant by private members in C++ inheritance?<br>a) Members accessible by all classes<br>b) Members not accessible in derived classes<br>c) Members accessible only in derived classes<br>d) Members accessible everywhere</span>
+                <label><input type=radio name='III5' onclick="check(this,'b')"> a) Members accessible by all classes</label>
+                <label><input type=radio name='III5' onclick="check(this,'b')"> b) Members not accessible in derived classes</label>
+                <label><input type=radio name='III5' onclick="check(this,'b')"> c) Members accessible only in derived classes</label>
+                <label><input type=radio name='III5' onclick="check(this,'b')"> d) Members accessible everywhere</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>7. What is the role of the base class constructor when a derived class object is created in C++?<br>a) Initializes base class members first<br>b) Initializes derived class members first<br>c) Only derived class constructor is called<br>d) No constructor is called</span>
+                <label><input type=radio name='III6' onclick="check(this,'a')"> a) Initializes base class members first</label>
+                <label><input type=radio name='III6' onclick="check(this,'a')"> b) Initializes derived class members first</label>
+                <label><input type=radio name='III6' onclick="check(this,'a')"> c) Only derived class constructor is called</label>
+                <label><input type=radio name='III6' onclick="check(this,'a')"> d) No constructor is called</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>8. What is the purpose of the protected access specifier in C++ inheritance?<br>a) It allows access only within the same function<br>b) It allows access only outside the class<br>c) It allows access within the class and derived classes<br>d) It prevents access everywhere</span>
+                <label><input type=radio name='III7' onclick="check(this,'c')"> a) It allows access only within the same function</label>
+                <label><input type=radio name='III7' onclick="check(this,'c')"> b) It allows access only outside the class</label>
+                <label><input type=radio name='III7' onclick="check(this,'c')"> c) It allows access within the class and derived classes</label>
+                <label><input type=radio name='III7' onclick="check(this,'c')"> d) It prevents access everywhere</label>
+                <div class='res'></div>
+            </div>
         </div>
-        <div class='q'>
-            <div>4. How does inheritance support code reusability in C++?<br>a) By deleting base class members<br>b) By
-                allowing derived classes to reuse properties and functions of base classes<br>c) By preventing class
-                creation<br>d) By restricting function access</div>
-            <label><input type=radio name='III3' onclick="check(this,'b')"> a) By deleting base class members</label>
-            <label><input type=radio name='III3' onclick="check(this,'b')"> b) By allowing derived classes to reuse
-                properties and functions of base classes</label>
-            <label><input type=radio name='III3' onclick="check(this,'b')"> c) By preventing class creation</label>
-            <label><input type=radio name='III3' onclick="check(this,'b')"> d) By restricting function access</label>
-            <div class='res'></div>
+
+        <!-- MODULE IV -->
+        <div id='IV' class='tab'>
+            <div class='q'>
+                <span class='q-text'>1. What would happen if a base class function is not declared virtual and accessed using a base class pointer?<br>a) Derived function is called<br>b) Base function is called<br>c) Both functions are called<br>d) Compilation error</span>
+                <label><input type=radio name='IV0' onclick="check(this,'b')"> a) Derived function is called</label>
+                <label><input type=radio name='IV0' onclick="check(this,'b')"> b) Base function is called</label>
+                <label><input type=radio name='IV0' onclick="check(this,'b')"> c) Both functions are called</label>
+                <label><input type=radio name='IV0' onclick="check(this,'b')"> d) Compilation error</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>2. What changes would you make to enable runtime polymorphism in a base class?<br>a) Add static keyword<br>b) Add friend keyword<br>c) Add virtual keyword<br>d) Add inline keyword</span>
+                <label><input type=radio name='IV1' onclick="check(this,'c')"> a) Add static keyword</label>
+                <label><input type=radio name='IV1' onclick="check(this,'c')"> b) Add friend keyword</label>
+                <label><input type=radio name='IV1' onclick="check(this,'c')"> c) Add virtual keyword</label>
+                <label><input type=radio name='IV1' onclick="check(this,'c')"> d) Add inline keyword</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>3. What would happen if you instantiate a class containing a pure virtual function?<br>a) Object created successfully<br>b) Runtime error<br>c) Compilation error<br>d) Warning only</span>
+                <label><input type=radio name='IV2' onclick="check(this,'c')"> a) Object created successfully</label>
+                <label><input type=radio name='IV2' onclick="check(this,'c')"> b) Runtime error</label>
+                <label><input type=radio name='IV2' onclick="check(this,'c')"> c) Compilation error</label>
+                <label><input type=radio name='IV2' onclick="check(this,'c')"> d) Warning only</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>4. What approach would you use to dynamically create multiple objects at runtime?<br>a) Using static keyword<br>b) Using new operator<br>c) Using const keyword<br>d) Using register keyword</span>
+                <label><input type=radio name='IV3' onclick="check(this,'b')"> a) Using static keyword</label>
+                <label><input type=radio name='IV3' onclick="check(this,'b')"> b) Using new operator</label>
+                <label><input type=radio name='IV3' onclick="check(this,'b')"> c) Using const keyword</label>
+                <label><input type=radio name='IV3' onclick="check(this,'b')"> d) Using register keyword</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>5. What would happen if virtual keyword is removed from an overridden function?<br>a) Late binding occurs<br>b) Early binding occurs<br>c) Both bindings occur<br>d) Error</span>
+                <label><input type=radio name='IV4' onclick="check(this,'b')"> a) Late binding occurs</label>
+                <label><input type=radio name='IV4' onclick="check(this,'b')"> b) Early binding occurs</label>
+                <label><input type=radio name='IV4' onclick="check(this,'b')"> c) Both bindings occur</label>
+                <label><input type=radio name='IV4' onclick="check(this,'b')"> d) Error</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>6. Which pointer would you use to refer to the calling object inside a member function?<br>a) Self<br>b) This<br>c) Base<br>d) ref</span>
+                <label><input type=radio name='IV5' onclick="check(this,'b')"> a) Self</label>
+                <label><input type=radio name='IV5' onclick="check(this,'b')"> b) This</label>
+                <label><input type=radio name='IV5' onclick="check(this,'b')"> c) Base</label>
+                <label><input type=radio name='IV5' onclick="check(this,'b')"> d) ref</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>7. What would happen if a base class pointer points to a derived class object and the function is virtual?<br>a) Base version executes<br>b) Derived version executes<br>c) Both execute<br>d) None</span>
+                <label><input type=radio name='IV6' onclick="check(this,'b')"> a) Base version executes</label>
+                <label><input type=radio name='IV6' onclick="check(this,'b')"> b) Derived version executes</label>
+                <label><input type=radio name='IV6' onclick="check(this,'b')"> c) Both execute</label>
+                <label><input type=radio name='IV6' onclick="check(this,'b')"> d) None</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>8. What would you include to prevent a class from being instantiated but allow inheritance?<br>a) Static constructor<br>b) Friend function<br>c) Pure virtual function<br>d) Inline function</span>
+                <label><input type=radio name='IV7' onclick="check(this,'c')"> a) Static constructor</label>
+                <label><input type=radio name='IV7' onclick="check(this,'c')"> b) Friend function</label>
+                <label><input type=radio name='IV7' onclick="check(this,'c')"> c) Pure virtual function</label>
+                <label><input type=radio name='IV7' onclick="check(this,'c')"> d) Inline function</label>
+                <div class='res'></div>
+            </div>
         </div>
-        <div class='q'>
-            <div>5. What is the purpose of using the colon(:) symbol in C++ inheritance?<br>a) It terminates the class
-                definition<br>b) It indicates that a derived class inherits from a base class<br>c) It declares a member
-                function<br>d) It defines a variable</div>
-            <label><input type=radio name='III4' onclick="check(this,'b')"> a) It terminates the class
-                definition</label>
-            <label><input type=radio name='III4' onclick="check(this,'b')"> b) It indicates that a derived class
-                inherits from a base class</label>
-            <label><input type=radio name='III4' onclick="check(this,'b')"> c) It declares a member function</label>
-            <label><input type=radio name='III4' onclick="check(this,'b')"> d) It defines a variable</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>6. What is meant by private members in C++ inheritance?<br>a) Members accessible by all classes<br>b)
-                Members not accessible in derived classes<br>c) Members accessible only in derived classes<br>d) Members
-                accessible everywhere</div>
-            <label><input type=radio name='III5' onclick="check(this,'b')"> a) Members accessible by all classes</label>
-            <label><input type=radio name='III5' onclick="check(this,'b')"> b) Members not accessible in derived
-                classes</label>
-            <label><input type=radio name='III5' onclick="check(this,'b')"> c) Members accessible only in derived
-                classes</label>
-            <label><input type=radio name='III5' onclick="check(this,'b')"> d) Members accessible everywhere</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>7. What is the role of the base class constructor when a derived class object is created in C++?<br>a)
-                Initializes base class members first<br>b) Initializes derived class members first<br>c) Only derived
-                class constructor is called<br>d) No constructor is called</div>
-            <label><input type=radio name='III6' onclick="check(this,'a')"> a) Initializes base class members
-                first</label>
-            <label><input type=radio name='III6' onclick="check(this,'a')"> b) Initializes derived class members
-                first</label>
-            <label><input type=radio name='III6' onclick="check(this,'a')"> c) Only derived class constructor is
-                called</label>
-            <label><input type=radio name='III6' onclick="check(this,'a')"> d) No constructor is called</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>8. What is the purpose of the protected access specifier in C++ inheritance?<br>a) It allows access
-                only within the same function<br>b) It allows access only outside the class<br>c) It allows access
-                within the class and derived classes<br>d) It prevents access everywhere</div>
-            <label><input type=radio name='III7' onclick="check(this,'c')"> a) It allows access only within the same
-                function</label>
-            <label><input type=radio name='III7' onclick="check(this,'c')"> b) It allows access only outside the
-                class</label>
-            <label><input type=radio name='III7' onclick="check(this,'c')"> c) It allows access within the class and
-                derived classes</label>
-            <label><input type=radio name='III7' onclick="check(this,'c')"> d) It prevents access everywhere</label>
-            <div class='res'></div>
+
+        <!-- MODULE V -->
+        <div id='V' class='tab'>
+            <div class='q'>
+                <span class='q-text'>1. How would you improve the flexibility of your code using template classes?<br>a) Code readability<br>b) Ease in coding<br>c) Code reusability<br>d) Modularity in code</span>
+                <label><input type=radio name='V0' onclick="check(this,'c')"> a) Code readability</label>
+                <label><input type=radio name='V0' onclick="check(this,'c')"> b) Ease in coding</label>
+                <label><input type=radio name='V0' onclick="check(this,'c')"> c) Code reusability</label>
+                <label><input type=radio name='V0' onclick="check(this,'c')"> d) Modularity in code</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>2. Predict what would happen if you use a template to generate multiple versions of a class for different types like int, float, and double. What would these classes handle?<br>a) Different data types<br>b) Different variables<br>c) Same data types<br>d) Different identifiers</span>
+                <label><input type=radio name='V1' onclick="check(this,'a')"> a) Different data types</label>
+                <label><input type=radio name='V1' onclick="check(this,'a')"> b) Different variables</label>
+                <label><input type=radio name='V1' onclick="check(this,'a')"> c) Same data types</label>
+                <label><input type=radio name='V1' onclick="check(this,'a')"> d) Different identifiers</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>3. How would you use a template class in C++ if you need a class that works with multiple generic data types? What capability does the template class provide?<br>a) It can have More than one generic data type<br>b) It can have Only one generic data type<br>c) It can have At most two data types<br>d) It can have Only generic type of integers and not characters</span>
+                <label><input type=radio name='V2' onclick="check(this,'a')"> a) It can have More than one generic data type</label>
+                <label><input type=radio name='V2' onclick="check(this,'a')"> b) It can have Only one generic data type</label>
+                <label><input type=radio name='V2' onclick="check(this,'a')"> c) It can have At most two data types</label>
+                <label><input type=radio name='V2' onclick="check(this,'a')"> d) It can have Only generic type of integers and not characters</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>4. What would you consider when choosing the correct syntax for a throw statement?<br>a) Throw()<br>b) throw[exception]<br>c) throw { }<br>d) throw(exception)</span>
+                <label><input type=radio name='V3' onclick="check(this,'d')"> a) Throw()</label>
+                <label><input type=radio name='V3' onclick="check(this,'d')"> b) throw[exception]</label>
+                <label><input type=radio name='V3' onclick="check(this,'d')"> c) throw { }</label>
+                <label><input type=radio name='V3' onclick="check(this,'d')"> d) throw(exception)</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>5. What would happen if you use the same data type multiple times while creating objects from a template class?<br>a) new class template is generated each time for the same data type.<br>b) The compiler generates only one class definition for that data type and reuses it for all objects.<br>c) It results in a compilation error due to duplicate data types.<br>d) The program will terminate at runtime due to type ambiguity.</span>
+                <label><input type=radio name='V4' onclick="check(this,'b')"> a) new class template is generated each time for the same data type.</label>
+                <label><input type=radio name='V4' onclick="check(this,'b')"> b) The compiler generates only one class definition for that data type and reuses it for all objects.</label>
+                <label><input type=radio name='V4' onclick="check(this,'b')"> c) It results in a compilation error due to duplicate data types.</label>
+                <label><input type=radio name='V4' onclick="check(this,'b')"> d) The program will terminate at runtime due to type ambiguity.</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>6. What would be the statement used to catch all the exceptions?<br>a) catch{…}<br>b) catch[…]<br>c) catch(…)<br>d) catch( void x)</span>
+                <label><input type=radio name='V5' onclick="check(this,'c')"> a) catch{…}</label>
+                <label><input type=radio name='V5' onclick="check(this,'c')"> b) catch[…]</label>
+                <label><input type=radio name='V5' onclick="check(this,'c')"> c) catch(…)</label>
+                <label><input type=radio name='V5' onclick="check(this,'c')"> d) catch( void x)</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>7. What can be passed by non-type template parameters during compile-time?<br>a) int<br>b) constant expression<br>c) float<br>d) char</span>
+                <label><input type=radio name='V6' onclick="check(this,'b')"> a) int</label>
+                <label><input type=radio name='V6' onclick="check(this,'b')"> b) constant expression</label>
+                <label><input type=radio name='V6' onclick="check(this,'b')"> c) float</label>
+                <label><input type=radio name='V6' onclick="check(this,'b')"> d) char</label>
+                <div class='res'></div>
+            </div>
+            <div class='q'>
+                <span class='q-text'>8. What approach would you use to include statements that may cause a program to terminate abnormally in C++ exception handling?<br>a) Try block<br>b) Catch block<br>c) Finally block<br>d) Throw block</span>
+                <label><input type=radio name='V7' onclick="check(this,'a')"> a) Try block</label>
+                <label><input type=radio name='V7' onclick="check(this,'a')"> b) Catch block</label>
+                <label><input type=radio name='V7' onclick="check(this,'a')"> c) Finally block</label>
+                <label><input type=radio name='V7' onclick="check(this,'a')"> d) Throw block</label>
+                <div class='res'></div>
+            </div>
         </div>
     </div>
-    <div id='IV' class='tab'>
-        <div class='q'>
-            <div>1. What would happen if a base class function is not declared virtual and accessed using a base class
-                pointer?<br>a) Derived function is called<br>b) Base function is called<br>c) Both functions are
-                called<br>d) Compilation error</div>
-            <label><input type=radio name='IV0' onclick="check(this,'b')"> a) Derived function is called</label>
-            <label><input type=radio name='IV0' onclick="check(this,'b')"> b) Base function is called</label>
-            <label><input type=radio name='IV0' onclick="check(this,'b')"> c) Both functions are called</label>
-            <label><input type=radio name='IV0' onclick="check(this,'b')"> d) Compilation error</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>2. What changes would you make to enable runtime polymorphism in a base class?<br>a) Add static
-                keyword<br>b) Add friend keyword<br>c) Add virtual keyword<br>d) Add inline keyword</div>
-            <label><input type=radio name='IV1' onclick="check(this,'c')"> a) Add static keyword</label>
-            <label><input type=radio name='IV1' onclick="check(this,'c')"> b) Add friend keyword</label>
-            <label><input type=radio name='IV1' onclick="check(this,'c')"> c) Add virtual keyword</label>
-            <label><input type=radio name='IV1' onclick="check(this,'c')"> d) Add inline keyword</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>3. What would happen if you instantiate a class containing a pure virtual function?<br>a) Object
-                created successfully<br>b) Runtime error<br>c) Compilation error<br>d) Warning only</div>
-            <label><input type=radio name='IV2' onclick="check(this,'c')"> a) Object created successfully</label>
-            <label><input type=radio name='IV2' onclick="check(this,'c')"> b) Runtime error</label>
-            <label><input type=radio name='IV2' onclick="check(this,'c')"> c) Compilation error</label>
-            <label><input type=radio name='IV2' onclick="check(this,'c')"> d) Warning only</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>4. What approach would you use to dynamically create multiple objects at runtime?<br>a) Using static
-                keyword<br>b) Using new operator<br>c) Using const keyword<br>d) Using register keyword</div>
-            <label><input type=radio name='IV3' onclick="check(this,'b')"> a) Using static keyword</label>
-            <label><input type=radio name='IV3' onclick="check(this,'b')"> b) Using new operator</label>
-            <label><input type=radio name='IV3' onclick="check(this,'b')"> c) Using const keyword</label>
-            <label><input type=radio name='IV3' onclick="check(this,'b')"> d) Using register keyword</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>5. What would happen if virtual keyword is removed from an overridden function?<br>a) Late binding
-                occurs<br>b) Early binding occurs<br>c) Both bindings occur<br>d) Error</div>
-            <label><input type=radio name='IV4' onclick="check(this,'b')"> a) Late binding occurs</label>
-            <label><input type=radio name='IV4' onclick="check(this,'b')"> b) Early binding occurs</label>
-            <label><input type=radio name='IV4' onclick="check(this,'b')"> c) Both bindings occur</label>
-            <label><input type=radio name='IV4' onclick="check(this,'b')"> d) Error</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>6. Which pointer would you use to refer to the calling object inside a member function?<br>a)
-                Self<br>b) This<br>c) Base<br>d) ref</div>
-            <label><input type=radio name='IV5' onclick="check(this,'b')"> a) Self</label>
-            <label><input type=radio name='IV5' onclick="check(this,'b')"> b) This</label>
-            <label><input type=radio name='IV5' onclick="check(this,'b')"> c) Base</label>
-            <label><input type=radio name='IV5' onclick="check(this,'b')"> d) ref</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>7. What would happen if a base class pointer points to a derived class object and the function is
-                virtual?<br>a) Base version executes<br>b) Derived version executes<br>c) Both execute<br>d) None</div>
-            <label><input type=radio name='IV6' onclick="check(this,'b')"> a) Base version executes</label>
-            <label><input type=radio name='IV6' onclick="check(this,'b')"> b) Derived version executes</label>
-            <label><input type=radio name='IV6' onclick="check(this,'b')"> c) Both execute</label>
-            <label><input type=radio name='IV6' onclick="check(this,'b')"> d) None</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>8. What would you include to prevent a class from being instantiated but allow inheritance?<br>a)
-                Static constructor<br>b) Friend function<br>c) Pure virtual function<br>d) Inline function</div>
-            <label><input type=radio name='IV7' onclick="check(this,'c')"> a) Static constructor</label>
-            <label><input type=radio name='IV7' onclick="check(this,'c')"> b) Friend function</label>
-            <label><input type=radio name='IV7' onclick="check(this,'c')"> c) Pure virtual function</label>
-            <label><input type=radio name='IV7' onclick="check(this,'c')"> d) Inline function</label>
-            <div class='res'></div>
-        </div>
-    </div>
-    <div id='V' class='tab'>
-        <div class='q'>
-            <div>1. How would you improve the flexibility of your code using template classes?<br>a) Code
-                readability<br>b) Ease in coding<br>c) Code reusability<br>d) Modularity in code</div>
-            <label><input type=radio name='V0' onclick="check(this,'c')"> a) Code readability</label>
-            <label><input type=radio name='V0' onclick="check(this,'c')"> b) Ease in coding</label>
-            <label><input type=radio name='V0' onclick="check(this,'c')"> c) Code reusability</label>
-            <label><input type=radio name='V0' onclick="check(this,'c')"> d) Modularity in code</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>2. Predict what would happen if you use a template to generate multiple versions of a class for
-                different types like int, float, and double. What would these classes handle?<br>a) Different data
-                types<br>b) Different variables<br>c) Same data types<br>d) Different identifiers</div>
-            <label><input type=radio name='V1' onclick="check(this,'a')"> a) Different data types</label>
-            <label><input type=radio name='V1' onclick="check(this,'a')"> b) Different variables</label>
-            <label><input type=radio name='V1' onclick="check(this,'a')"> c) Same data types</label>
-            <label><input type=radio name='V1' onclick="check(this,'a')"> d) Different identifiers</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>3. How would you use a template class in C++ if you need a class that works with multiple generic data
-                types? What capability does the template class provide?<br>a) It can have More than one generic data
-                type<br>b) It can have Only one generic data type<br>c) It can have At most two data types<br>d) It can
-                have Only generic type of integers and not characters</div>
-            <label><input type=radio name='V2' onclick="check(this,'a')"> a) It can have More than one generic data
-                type</label>
-            <label><input type=radio name='V2' onclick="check(this,'a')"> b) It can have Only one generic data
-                type</label>
-            <label><input type=radio name='V2' onclick="check(this,'a')"> c) It can have At most two data types</label>
-            <label><input type=radio name='V2' onclick="check(this,'a')"> d) It can have Only generic type of integers
-                and not characters</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>4. What would you consider when choosing the correct syntax for a throw statement?<br>a) Throw()<br>b)
-                throw[exception]<br>c) throw { }<br>d) throw(exception)</div>
-            <label><input type=radio name='V3' onclick="check(this,'d')"> a) Throw()</label>
-            <label><input type=radio name='V3' onclick="check(this,'d')"> b) throw[exception]</label>
-            <label><input type=radio name='V3' onclick="check(this,'d')"> c) throw { }</label>
-            <label><input type=radio name='V3' onclick="check(this,'d')"> d) throw(exception)</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>5. What would happen if you use the same data type multiple times while creating objects from a
-                template class?<br>a) new class template is generated each time for the same data type.<br>b) The
-                compiler generates only one class definition for that data type and reuses it for all objects.<br>c) It
-                results in a compilation error due to duplicate data types.<br>d) The program will terminate at runtime
-                due to type ambiguity.</div>
-            <label><input type=radio name='V4' onclick="check(this,'b')"> a) new class template is generated each time
-                for the same data type.</label>
-            <label><input type=radio name='V4' onclick="check(this,'b')"> b) The compiler generates only one class
-                definition for that data type and reuses it for all objects.</label>
-            <label><input type=radio name='V4' onclick="check(this,'b')"> c) It results in a compilation error due to
-                duplicate data types.</label>
-            <label><input type=radio name='V4' onclick="check(this,'b')"> d) The program will terminate at runtime due
-                to type ambiguity.</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>6. What would be the statement used to catch all the exceptions?<br>a) catch{…}<br>b) catch[…]<br>c)
-                catch(…)<br>d) catch( void x)</div>
-            <label><input type=radio name='V5' onclick="check(this,'c')"> a) catch{…}</label>
-            <label><input type=radio name='V5' onclick="check(this,'c')"> b) catch[…]</label>
-            <label><input type=radio name='V5' onclick="check(this,'c')"> c) catch(…)</label>
-            <label><input type=radio name='V5' onclick="check(this,'c')"> d) catch( void x)</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>7. What can be passed by non-type template parameters during compile-time?<br>a) int<br>b) constant
-                expression<br>c) float<br>d) char</div>
-            <label><input type=radio name='V6' onclick="check(this,'b')"> a) int</label>
-            <label><input type=radio name='V6' onclick="check(this,'b')"> b) constant expression</label>
-            <label><input type=radio name='V6' onclick="check(this,'b')"> c) float</label>
-            <label><input type=radio name='V6' onclick="check(this,'b')"> d) char</label>
-            <div class='res'></div>
-        </div>
-        <div class='q'>
-            <div>8. What approach would you use to include statements that may cause a program to terminate abnormally
-                in C++ exception handling?<br>a) Try block<br>b) Catch block<br>c) Finally block<br>d) Throw block</div>
-            <label><input type=radio name='V7' onclick="check(this,'a')"> a) Try block</label>
-            <label><input type=radio name='V7' onclick="check(this,'a')"> b) Catch block</label>
-            <label><input type=radio name='V7' onclick="check(this,'a')"> c) Finally block</label>
-            <label><input type=radio name='V7' onclick="check(this,'a')"> d) Throw block</label>
-            <div class='res'></div>
-        </div>
-    </div>
+
     <script>
-        function show(id) { document.querySelectorAll('.tab').forEach(t => t.classList.remove('active')); document.getElementById(id).classList.add('active') }
+        function show(id) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0); // Reset scroll to top when changing modules
+        }
+
         function check(el, a) {
-            let labs = [...el.closest('.q').querySelectorAll('label')];
-            labs.forEach(l => { let o = l.textContent.trim()[0].toLowerCase(); if (o == a) l.classList.add('correct'); if (l.contains(el) && o != a) l.classList.add('wrong'); });
+            let qBox = el.closest('.q');
+            let labs = [...qBox.querySelectorAll('label')];
+            labs.forEach(l => {
+                let optionText = l.textContent.trim().toLowerCase();
+                let optionLetter = optionText.charAt(0);
+                
+                // Clear previous highlights
+                l.classList.remove('correct', 'wrong');
+
+                // Highlight correct answer in green
+                if (optionLetter === a) {
+                    l.classList.add('correct');
+                }
+                
+                // If user clicked this label and it's wrong, highlight it red
+                if (l.contains(el) && optionLetter !== a) {
+                    l.classList.add('wrong');
+                }
+            });
         }
     </script>
 </body>
